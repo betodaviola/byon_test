@@ -3,25 +3,28 @@ float[] eclipse = new float[3];
 float angle;
 Eclipse myEclipse;
 
+void eclipseDraw() {
+  myEclipse.update();
+  myEclipse.display();
+}
+
 class Eclipse {
-  float[] moon;
   float ecX, ecY, ecR;
   float whiteSize;
   float blackSizeX;
   float blackSizeY;
 
   Eclipse() {
-    moon = eclipse;
-    updateEclipse();
+//    updateEclipse();
     whiteSize = width/9;
     blackSizeX = whiteSize - 7;
     blackSizeY = whiteSize + 7;
   }
 
-  void updateEclipse() {
-    ecX = moon[0];
-    ecY = moon[1];
-    ecR = moon[2];
+  void update() {
+    ecX = eclipse[0];
+    ecY = eclipse[1];
+    ecR = eclipse[2];
   }
 
   void display() {
@@ -34,7 +37,7 @@ class Eclipse {
 
     ellipse(width/2, height/2, whiteSize, whiteSize); // Static white ellipse
 
-    updateEclipse();
+//    updateEclipse();
     float angle = radians(ecR);
     pushMatrix();
     translate(width/2, height/2);
